@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venti - Just Breathe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // Dawn Theme (Day)
+              'dawn-bg-start': '#fde68a', // Light yellow
+              'dawn-bg-end': '#81e6d9',   // Light teal
+              'dawn-primary': '#dd6b20', // Orange
+              'dawn-secondary': '#38b2ac', // Teal
+              'dawn-text': '#2d3748',     // Dark Gray
+              'dawn-card': 'rgba(255, 255, 255, 0.7)',
+
+              // Dusk Theme (Night)
+              'dusk-bg-start': '#2b1055', // Deep Indigo
+              'dusk-bg-end': '#7668b2',   // Muted Purple
+              'dusk-primary': '#a78bfa', // Lavender
+              'dusk-secondary': '#fde68a', // Pale Yellow (for contrast)
+              'dusk-text': '#e2e8f0',     // Light Gray
+              'dusk-card': 'rgba(45, 55, 72, 0.4)',
+
+              // Original Brand Colors (can be fallback or used for specific elements)
+              'brand-deep-purple': '#1e1b4b',
+              'brand-purple': '#4c1d95',
+              'brand-light-purple': '#c4b5fd',
+              'brand-teal': '#14b8a6',
+              'brand-light-gray': '#f8fafc',
+              'brand-text': '#334155',
+            },
+            animation: {
+              'breathe-in': 'breathe-in 4s ease-in-out infinite',
+              'breathe-out': 'breathe-out 6s ease-in-out infinite',
+              'shred-fall': 'shred-fall 1s ease-out forwards',
+              'toast-in-out': 'toast-in-out 3s ease-in-out forwards',
+              'fade-in': 'fade-in 1.5s ease-out forwards',
+            },
+            keyframes: {
+              'breathe-in': {
+                '0%, 100%': { transform: 'scale(0.8)', opacity: '0.7' },
+                '50%': { transform: 'scale(1.2)', opacity: '1' },
+              },
+               'breathe-out': {
+                '0%, 100%': { transform: 'scale(1.2)', opacity: '1' },
+                '50%': { transform: 'scale(0.8)', opacity: '0.7' },
+              },
+              'shred-fall': {
+                '0%': { transform: 'translateY(0) rotate(0)', opacity: '1' },
+                '100%': { transform: 'translateY(100px) rotate(15deg)', opacity: '0' },
+              },
+              'toast-in-out': {
+                '0%, 100%': { opacity: '0', transform: 'translateY(20px)' },
+                '10%, 90%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'fade-in': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/recharts@2/umd/Recharts.min.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
